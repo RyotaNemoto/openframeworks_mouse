@@ -20,10 +20,12 @@ Circle::Circle(){
         vertice[i].set(ofRandom(-1 * ofGetWidth() / 2, ofGetWidth() / 2),
                        ofRandom(-1 * ofGetHeight() / 2, ofGetHeight() / 2),
                        0.0f);
+        
         ofFloatColor color;
-        color.setHsb(ofRandom(0.2),1,1);
+        color.setHsb(ofRandom(0.2), 1, 1);
         colors[i].set(color);
     }
+    
     vert_buff_obj.setVertexData(vertice, NUM, GL_DYNAMIC_DRAW);
     vert_buff_obj.setColorData(colors,NUM,GL_DYNAMIC_DRAW);
     //vert_buff_obj.setNormalData(normals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
