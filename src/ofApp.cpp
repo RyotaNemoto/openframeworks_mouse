@@ -3,14 +3,14 @@
 void ofApp::setup(){
     ofBackground(0, 0, 0);
     ofSetFrameRate(60);
-    c = *new circle();
+    circle = *new Circle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 }
 
 void ofApp::update(){
-    c.update();
+    circle.update();
 }
 
 void ofApp::draw(){
-    c.draw();
+    circle.draw();
 }

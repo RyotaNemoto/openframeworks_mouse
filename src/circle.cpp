@@ -8,7 +8,7 @@
 
 #include "circle.hpp"
 
-circle::circle(){
+Circle::Circle(){
     m = 5;//粒子の重さ
     M = 10;//マウスの重さ
     G = 0.0667408;//万有引力定数
@@ -29,7 +29,7 @@ circle::circle(){
     //vert_buff_obj.setNormalData(normals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
-void circle::update(){
+void Circle::update(){
     
     pos_m = ofVec3f(ofGetMouseX(), ofGetMouseY(), 0);
     
@@ -63,7 +63,7 @@ void circle::update(){
     vert_buff_obj.updateVertexData(vertice, NUM);
 }
 
-void circle::draw(){
+void Circle::draw(){
     //    for(int i=0; i<NUM; i++){
     //        ofSetColor(red[i],green[i],blue[i],127);
     //        ofDrawCircle(pos_c[i], 5);

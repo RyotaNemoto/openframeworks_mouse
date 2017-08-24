@@ -12,10 +12,10 @@
 #include "ofMain.h"
 #define NUM 10000
 
-class circle{
+class Circle{
     
 public:
-    circle();
+    Circle();
     void setup();
     void update();
     void draw();
