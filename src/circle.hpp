@@ -22,7 +22,7 @@ public:
     
 private:
     //ofVec2f pos_c[NUM];//円の位置ベクトル
-    ofVec3f pos_m;//マウスの位置ベクトル
+    ofVec3f pos_mouse;//マウスの位置ベクトル
     ofVec3f pos_cm[NUM];//合成
     ofVec3f acc[NUM];//加速度
     ofVec3f speed[NUM];//速度

@@ -31,27 +31,27 @@ Circle::Circle(){
 
 void Circle::update(){
     
-    pos_m = ofVec3f(ofGetMouseX(), ofGetMouseY(), 0);
+    pos_mouse = ofVec3f(ofGetMouseX(), ofGetMouseY(), 0);
     
-    for(int i = 0; i < NUM; i++){
+    for(int i = 0; i < NUM; i++) {
         
-        pos_cm[i] = pos_m - vertice[i];//粒子とマウスの距離
-        F[i] = G*M*m/pos_cm[i].length() * pos_cm[i].length();//ばんゆういんりょくのけいさんしき
+        pos_cm[i] = pos_mouse - vertice[i];//粒子とマウスの距離
+        F[i] = G * M * m / pos_cm[i].length() * pos_cm[i].length();//ばんゆういんりょくのけいさんしき
         pos_cm[i] = pos_cm[i].normalize();//pos_cmを単位ベクトルにする
-        acc[i] = pos_cm[i] * F[i]/m;//加速度を求める
+        acc[i] = pos_cm[i] * F[i] / m;//加速度を求める
         speed[i] += acc[i];//速度を求める
         
         //速度を制御する↓
-        if(speed[i].x > 15){
+        if(speed[i].x > 15) {
             speed[i].x = 15;
         }
-        else if(speed[i].y > 15){
+        else if(speed[i].y > 15) {
             speed[i].y = 15;
         }
-        else if(speed[i].x < -15){
+        else if(speed[i].x < -15) {
             speed[i].x = -15;
         }
-        else if(speed[i].y<-15){
+        else if(speed[i].y<-15) {
             speed[i].y = -15;
         }
         
@@ -64,17 +64,17 @@ void Circle::update(){
 }
 
 void Circle::draw(){
-    //    for(int i=0; i<NUM; i++){
-    //        ofSetColor(red[i],green[i],blue[i],127);
-    //        ofDrawCircle(pos_c[i], 5);
-    //    }
+//        for(int i=0; i<NUM; i++){
+//            ofSetColor(red[i],green[i],blue[i],127);
+//            ofDrawCircle(pos_c[i], 5);
+//        }
     glPointSize(1);
     glEnable(GL_POINT_SMOOTH);
-    //cam.begin()
-    //ofSetColor(51,212,221);
+//    cam.begin();
+//    ofSetColor(51,212,221);
     vert_buff_obj.draw(GL_POINTS, 0 ,NUM);
     
-    //cam.end();
+//    cam.end();
 }
 
 
