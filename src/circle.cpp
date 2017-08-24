@@ -62,10 +62,10 @@ void Circle::update(){
         //円の動き
         vertice[i] += speed[i];
         
-        float elapsedTime = ofGetElapsedTimef() * i * 100;
-        r = ofNoise(elapsedTime * 255);
-        g = ofNoise(elapsedTime * 255);
-        b = ofNoise(elapsedTime * 255);
+        float elapsedTime = ofGetElapsedTimef();
+        r = ofNoise(elapsedTime / 10);
+        g = ofNoise(elapsedTime / 80);
+        b = ofNoise(elapsedTime / 50);
         ofFloatColor color;
         color.set(r, g, b);
         colors[i].set(color);

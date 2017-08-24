@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "ofMain.h"
-#define PARTICL_NUM 10000
+#define PARTICL_NUM 20000
 
 class Circle{
     
