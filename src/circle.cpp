@@ -74,13 +74,11 @@ void Circle::update(){
 }
 
 void Circle::draw(){
-
-    
     glPointSize(1);
+    
     glEnable(GL_POINT_SMOOTH);
     
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
-    
 }
 
 
