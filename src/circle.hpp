@@ -32,15 +32,20 @@ private:
     float loc_x[NUM];
     float loc_y[NUM];
     float radius[NUM];
+    
+    // 色
     int red[NUM];
     int green[NUM];
     int blue[NUM];
+    float r,g,b;
+    
     bool mouse_pressed;
+    
     float m;//円の重さ
     float M;//マウスの重さ
     float F[NUM];//力
     float G;//万有引力定数
-    float r,g,b;
+    
     ofEasyCam cam;
     
     ofVbo mVbo;
