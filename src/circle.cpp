@@ -9,8 +9,6 @@
 #include "circle.hpp"
 
 circle::circle(){
-    
-    
     m=5;//粒子の重さ
     M=10;//マウスの重さ
     G=0.0667408;//万有引力定数
@@ -23,14 +21,12 @@ circle::circle(){
         ofFloatColor color;
         color.setHsb(ofRandom(0.2),1,1);
         mColor[i].set(color);
-        
-        
     }
     mVbo.setVertexData(mVerts, NUM, GL_DYNAMIC_DRAW);
     mVbo.setColorData(mColor,NUM,GL_DYNAMIC_DRAW);
     //mVbo.setNormalData(mNormals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
-    
 }
+
 void circle::update(){
     
     pos_m = ofVec3f(ofGetMouseX(),ofGetMouseY(),0);
@@ -45,32 +41,23 @@ void circle::update(){
         //速度を制御する↓
         if(speed_[i].x>15){
             speed_[i].x=15;
-            
         }
         else if(speed_[i].y>15){
             speed_[i].y=15;
-            
         }
         else if(speed_[i].x<-15){
             speed_[i].x=-15;
-            
         }
         else if(speed_[i].y<-15){
             speed_[i].y=-15;
         }
         
-        
         mVerts[i] += speed_[i];//円の動き
         r=ofNoise(ofGetElapsedTimef()/i*2)*255;
         g=ofNoise(ofGetElapsedTimef()/i*3)*255;
         b=ofNoise(ofGetElapsedTimef()/i*5)*255;
-        
     }
-    
     mVbo.updateVertexData(mVerts, NUM);
-    
-    
-    
 }
 
 void circle::draw(){

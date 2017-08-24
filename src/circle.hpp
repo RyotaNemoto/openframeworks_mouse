@@ -14,11 +14,13 @@
 
 
 class circle{
+    
 public:
     circle();
     void setup();
     void update();
     void draw();
+    
 private:
     //ofVec2f pos_c[NUM];//円の位置ベクトル
     ofVec3f pos_m;//マウスの位置ベクトル
@@ -45,8 +47,6 @@ private:
     ofVec3f mVerts[NUM];
     ofFloatColor mColor[NUM];
     ofVec3f mNormals[NUM];
-    
-    
 };
 
 
