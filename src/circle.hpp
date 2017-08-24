@@ -12,7 +12,6 @@
 #include "ofMain.h"
 #define NUM 10000
 
-
 class circle{
     
 public:
@@ -38,10 +37,10 @@ private:
     
     ofEasyCam cam;
     
-    ofVbo mVbo;
-    ofVec3f mVerts[NUM];
-    ofFloatColor mColor[NUM];
-    ofVec3f mNormals[NUM];
+    ofVbo vert_buff_obj; // Vbo = Vertex Buffer Objects
+    ofVec3f vertice[NUM]; // 頂点の数
+    ofFloatColor colors[NUM]; // 色の数
+    ofVec3f normals[NUM]; // 3次元ベクトル用データ構造
 };
 
 

@@ -17,16 +17,16 @@ circle::circle(){
         
         speed[i]=ofVec3f(0,0,0);
         
-        mVerts[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),
+        vertice[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),
                       ofRandom(-1*ofGetHeight()/2,ofGetHeight()/2),
                       0.0f);
         ofFloatColor color;
         color.setHsb(ofRandom(0.2),1,1);
-        mColor[i].set(color);
+        colors[i].set(color);
     }
-    mVbo.setVertexData(mVerts, NUM, GL_DYNAMIC_DRAW);
-    mVbo.setColorData(mColor,NUM,GL_DYNAMIC_DRAW);
-    //mVbo.setNormalData(mNormals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+    vert_buff_obj.setVertexData(vertice, NUM, GL_DYNAMIC_DRAW);
+    vert_buff_obj.setColorData(colors,NUM,GL_DYNAMIC_DRAW);
+    //vert_buff_obj.setNormalData(normals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
 void circle::update(){
@@ -35,7 +35,7 @@ void circle::update(){
     
     for(int i=0;i<NUM;i++){
         
-        pos_cm[i]=pos_m-mVerts[i];//粒子とマウスの距離
+        pos_cm[i]=pos_m-vertice[i];//粒子とマウスの距離
         F[i]=G*M*m/pos_cm[i].length()*pos_cm[i].length();//ばんゆういんりょくのけいさんしき
         pos_cm[i]= pos_cm[i].normalize();//pos_cmを単位ベクトルにする
         acc[i]=pos_cm[i]*F[i]/m;//加速度を求める
@@ -54,12 +54,12 @@ void circle::update(){
             speed[i].y=-15;
         }
         
-        mVerts[i] += speed[i];//円の動き
+        vertice[i] += speed[i];//円の動き
         r=ofNoise(ofGetElapsedTimef()/i*2)*255;
         g=ofNoise(ofGetElapsedTimef()/i*3)*255;
         b=ofNoise(ofGetElapsedTimef()/i*5)*255;
     }
-    mVbo.updateVertexData(mVerts, NUM);
+    vert_buff_obj.updateVertexData(vertice, NUM);
 }
 
 void circle::draw(){
@@ -71,7 +71,7 @@ void circle::draw(){
     glEnable(GL_POINT_SMOOTH);
     //cam.begin()
     //ofSetColor(51,212,221);
-    mVbo.draw(GL_POINTS,0,NUM);
+    vert_buff_obj.draw(GL_POINTS,0,NUM);
     
     //cam.end();
 }
