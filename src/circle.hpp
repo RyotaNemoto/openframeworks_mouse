@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include "ofMain.h"
-#define NUM 10000
+#define PARTICL_NUM 10000
 
 class Circle{
     
@@ -21,26 +21,26 @@ public:
     void draw();
     
 private:
-    //ofVec2f pos_c[NUM];//円の位置ベクトル
+    //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル
     ofVec3f pos_mouse;//マウスの位置ベクトル
-    ofVec3f pos_cm[NUM];//合成
-    ofVec3f acc[NUM];//加速度
-    ofVec3f speed[NUM];//速度
+    ofVec3f pos_cm[PARTICL_NUM];//合成
+    ofVec3f acc[PARTICL_NUM];//加速度
+    ofVec3f speed[PARTICL_NUM];//速度
     
     // 色
     float r, g, b;
     
     float m;//円の重さ
     float M;//マウスの重さ
-    float F[NUM];//力
+    float F[PARTICL_NUM];//力
     float G;//万有引力定数
     
     ofEasyCam cam; // A super simple camera for interacting with objects in 3D space.
     
     ofVbo vert_buff_obj; // Vbo = Vertex Buffer Objects
-    ofVec3f vertice[NUM]; // 頂点の数
-    ofFloatColor colors[NUM]; // 色の数
-    ofVec3f normals[NUM]; // 3次元ベクトル用データ構造
+    ofVec3f vertice[PARTICL_NUM]; // 頂点の数
+    ofFloatColor colors[PARTICL_NUM]; // 色の数
+    ofVec3f normals[PARTICL_NUM]; // 3次元ベクトル用データ構造
 };
 
 

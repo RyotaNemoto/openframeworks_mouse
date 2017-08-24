@@ -13,7 +13,7 @@ Circle::Circle(){
     M = 10;//マウスの重さ
     G = 0.0667408;//万有引力定数
     
-    for(int i = 0; i < NUM; i++){
+    for(int i = 0; i < PARTICL_NUM; i++){
         
         speed[i] = ofVec3f(0, 0, 0);
         
@@ -26,16 +26,16 @@ Circle::Circle(){
         colors[i].set(color);
     }
     
-    vert_buff_obj.setVertexData(vertice, NUM, GL_DYNAMIC_DRAW);
-    vert_buff_obj.setColorData(colors,NUM,GL_DYNAMIC_DRAW);
-    //vert_buff_obj.setNormalData(normals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+    vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
+    vert_buff_obj.setColorData(colors, PARTICL_NUM,GL_DYNAMIC_DRAW);
+    //vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
 void Circle::update(){
     
     pos_mouse = ofVec3f(ofGetMouseX(), ofGetMouseY(), 0);
     
-    for(int i = 0; i < NUM; i++) {
+    for(int i = 0; i < PARTICL_NUM; i++) {
         
         pos_cm[i] = pos_mouse - vertice[i];//粒子とマウスの距離
         F[i] = G * M * m / pos_cm[i].length() * pos_cm[i].length();//ばんゆういんりょくのけいさんしき
@@ -62,11 +62,11 @@ void Circle::update(){
         g = ofNoise(ofGetElapsedTimef() / i * 3) * 255;
         b = ofNoise(ofGetElapsedTimef() / i * 5) * 255;
     }
-    vert_buff_obj.updateVertexData(vertice, NUM);
+    vert_buff_obj.updateVertexData(vertice, PARTICL_NUM);
 }
 
 void Circle::draw(){
-//        for(int i=0; i<NUM; i++){
+//        for(int i=0; i<PARTICL_NUM; i++){
 //            ofSetColor(red[i],green[i],blue[i],127);
 //            ofDrawCircle(pos_c[i], 5);
 //        }
@@ -74,7 +74,7 @@ void Circle::draw(){
     glEnable(GL_POINT_SMOOTH);
 //    cam.begin();
 //    ofSetColor(51,212,221);
-    vert_buff_obj.draw(GL_POINTS, 0 ,NUM);
+    vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
     
 //    cam.end();
 }
