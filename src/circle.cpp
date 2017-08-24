@@ -16,25 +16,25 @@ circle::circle(){
     G=0.0667408;//万有引力定数
     
     for(int i=0;i<NUM;i++){
-
+        
         speed_[i]=ofVec3f(0,0,0);
         
         mVerts[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),ofRandom(-1*ofGetHeight()/2,ofGetHeight()/2),0.0f);
-            ofFloatColor color;
-            color.setHsb(ofRandom(0.2),1,1);
-            mColor[i].set(color);
+        ofFloatColor color;
+        color.setHsb(ofRandom(0.2),1,1);
+        mColor[i].set(color);
         
         
     }
-        mVbo.setVertexData(mVerts, NUM, GL_DYNAMIC_DRAW);
-        mVbo.setColorData(mColor,NUM,GL_DYNAMIC_DRAW);
-        //mVbo.setNormalData(mNormals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+    mVbo.setVertexData(mVerts, NUM, GL_DYNAMIC_DRAW);
+    mVbo.setColorData(mColor,NUM,GL_DYNAMIC_DRAW);
+    //mVbo.setNormalData(mNormals, NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
     
 }
 void circle::update(){
     
     pos_m = ofVec3f(ofGetMouseX(),ofGetMouseY(),0);
-
+    
     for(int i=0;i<NUM;i++){
         
         pos_cm[i]=pos_m-mVerts[i];//粒子とマウスの距離
@@ -66,18 +66,18 @@ void circle::update(){
         b=ofNoise(ofGetElapsedTimef()/i*5)*255;
         
     }
-
+    
     mVbo.updateVertexData(mVerts, NUM);
     
-
+    
     
 }
 
 void circle::draw(){
-//    for(int i=0; i<NUM; i++){
-//        ofSetColor(red[i],green[i],blue[i],127);
-//        ofDrawCircle(pos_c[i], 5);
-//    }
+    //    for(int i=0; i<NUM; i++){
+    //        ofSetColor(red[i],green[i],blue[i],127);
+    //        ofDrawCircle(pos_c[i], 5);
+    //    }
     glPointSize(1);
     glEnable(GL_POINT_SMOOTH);
     //cam.begin()
