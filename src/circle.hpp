@@ -39,8 +39,6 @@ private:
     int blue[NUM];
     float r,g,b;
     
-    bool mouse_pressed;
-    
     float m;//円の重さ
     float M;//マウスの重さ
     float F[NUM];//力

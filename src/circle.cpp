@@ -17,7 +17,9 @@ circle::circle(){
         
         speed_[i]=ofVec3f(0,0,0);
         
-        mVerts[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),ofRandom(-1*ofGetHeight()/2,ofGetHeight()/2),0.0f);
+        mVerts[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),
+                      ofRandom(-1*ofGetHeight()/2,ofGetHeight()/2),
+                      0.0f);
         ofFloatColor color;
         color.setHsb(ofRandom(0.2),1,1);
         mColor[i].set(color);

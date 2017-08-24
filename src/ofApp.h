@@ -12,8 +12,4 @@ public:
     void draw();
     
     circle c;
-    
-private:
-    // 万有引力
-    bool mouse_pressed;
 };
