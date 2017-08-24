@@ -22,13 +22,10 @@ Circle::Circle(){
                        ofRandom(-1 * ofGetHeight() / 2, ofGetHeight() / 2),
                        0.0f);
         
-        ofFloatColor color;
-        color.setHsb(ofRandom(0.2), 1, 1);
-        colors[i].set(color);
     }
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
-    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
+//    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
@@ -64,30 +61,29 @@ void Circle::update(){
 
         //円の動き
         vertice[i] += speed[i];
+        
+        float elapsedTime = ofGetElapsedTimef() * i * 100;
+        r = ofNoise(elapsedTime * 255);
+        g = ofNoise(elapsedTime * 255);
+        b = ofNoise(elapsedTime * 255);
+        ofFloatColor color;
+        color.set(r, g, b);
+        colors[i].set(color);
 
-//        TODO: maybe not needed
-//        r = ofNoise(ofGetElapsedTimef() / i * 2) * 255;
-//        g = ofNoise(ofGetElapsedTimef() / i * 3) * 255;
-//        b = ofNoise(ofGetElapsedTimef() / i * 5) * 255;
     }
     
     vert_buff_obj.updateVertexData(vertice, PARTICL_NUM);
+    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
 }
 
 void Circle::draw(){
-//        for(int i=0; i<PARTICL_NUM; i++){
-//            ofSetColor(red[i],green[i],blue[i],127);
-//            ofDrawCircle(pos_c[i], 5);
-//        }
+
     
     glPointSize(1);
     glEnable(GL_POINT_SMOOTH);
     
-//    cam.begin();
-//    ofSetColor(51,212,221);
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
     
-//    cam.end();
 }
 
 
