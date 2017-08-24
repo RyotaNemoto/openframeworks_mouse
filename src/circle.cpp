@@ -15,7 +15,7 @@ circle::circle(){
     
     for(int i=0;i<NUM;i++){
         
-        speed_[i]=ofVec3f(0,0,0);
+        speed[i]=ofVec3f(0,0,0);
         
         mVerts[i].set(ofRandom(-1*ofGetWidth()/2,ofGetWidth()/2),
                       ofRandom(-1*ofGetHeight()/2,ofGetHeight()/2),
@@ -39,22 +39,22 @@ void circle::update(){
         F[i]=G*M*m/pos_cm[i].length()*pos_cm[i].length();//ばんゆういんりょくのけいさんしき
         pos_cm[i]= pos_cm[i].normalize();//pos_cmを単位ベクトルにする
         acc[i]=pos_cm[i]*F[i]/m;//加速度を求める
-        speed_[i] += acc[i];//速度を求める
+        speed[i] += acc[i];//速度を求める
         //速度を制御する↓
-        if(speed_[i].x>15){
-            speed_[i].x=15;
+        if(speed[i].x>15){
+            speed[i].x=15;
         }
-        else if(speed_[i].y>15){
-            speed_[i].y=15;
+        else if(speed[i].y>15){
+            speed[i].y=15;
         }
-        else if(speed_[i].x<-15){
-            speed_[i].x=-15;
+        else if(speed[i].x<-15){
+            speed[i].x=-15;
         }
-        else if(speed_[i].y<-15){
-            speed_[i].y=-15;
+        else if(speed[i].y<-15){
+            speed[i].y=-15;
         }
         
-        mVerts[i] += speed_[i];//円の動き
+        mVerts[i] += speed[i];//円の動き
         r=ofNoise(ofGetElapsedTimef()/i*2)*255;
         g=ofNoise(ofGetElapsedTimef()/i*3)*255;
         b=ofNoise(ofGetElapsedTimef()/i*5)*255;

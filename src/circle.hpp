@@ -26,17 +26,9 @@ private:
     ofVec3f pos_m;//マウスの位置ベクトル
     ofVec3f pos_cm[NUM];//合成
     ofVec3f acc[NUM];//加速度
-    ofVec3f speed_[NUM];//速度
-    
-    //BNN_BeyondIntaraction P106から
-    float loc_x[NUM];
-    float loc_y[NUM];
-    float radius[NUM];
+    ofVec3f speed[NUM];//速度
     
     // 色
-    int red[NUM];
-    int green[NUM];
-    int blue[NUM];
     float r,g,b;
     
     float m;//円の重さ
