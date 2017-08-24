@@ -56,9 +56,9 @@ void Circle::update(){
         }
         
         vertice[i] += speed[i];//円の動き
-        r = ofNoise(ofGetElapsedTimef()/i*2)*255;
-        g = ofNoise(ofGetElapsedTimef()/i*3)*255;
-        b = ofNoise(ofGetElapsedTimef()/i*5)*255;
+        r = ofNoise(ofGetElapsedTimef() / i * 2) * 255;
+        g = ofNoise(ofGetElapsedTimef() / i * 3) * 255;
+        b = ofNoise(ofGetElapsedTimef() / i * 5) * 255;
     }
     vert_buff_obj.updateVertexData(vertice, NUM);
 }
@@ -72,7 +72,7 @@ void Circle::draw(){
     glEnable(GL_POINT_SMOOTH);
     //cam.begin()
     //ofSetColor(51,212,221);
-    vert_buff_obj.draw(GL_POINTS,0,NUM);
+    vert_buff_obj.draw(GL_POINTS, 0 ,NUM);
     
     //cam.end();
 }

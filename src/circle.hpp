@@ -28,14 +28,14 @@ private:
     ofVec3f speed[NUM];//速度
     
     // 色
-    float r,g,b;
+    float r, g, b;
     
     float m;//円の重さ
     float M;//マウスの重さ
     float F[NUM];//力
     float G;//万有引力定数
     
-    ofEasyCam cam;
+    ofEasyCam cam; // A super simple camera for interacting with objects in 3D space.
     
     ofVbo vert_buff_obj; // Vbo = Vertex Buffer Objects
     ofVec3f vertice[NUM]; // 頂点の数
