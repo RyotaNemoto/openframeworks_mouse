@@ -13,6 +13,7 @@ Circle::Circle(){
     M = 10;//マウスの重さ
     G = 0.0667408;//万有引力定数
     
+    // 初期データの作成
     for(int i = 0; i < PARTICL_NUM; i++){
         
         speed[i] = ofVec3f(0, 0, 0);
@@ -27,41 +28,49 @@ Circle::Circle(){
     }
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
-    vert_buff_obj.setColorData(colors, PARTICL_NUM,GL_DYNAMIC_DRAW);
+    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
 void Circle::update(){
     
+    // 現在のマウス位置を取得
     pos_mouse = ofVec3f(ofGetMouseX(), ofGetMouseY(), 0);
     
+    // 各頂点の位置を万有引力の計算式を用いて計算
     for(int i = 0; i < PARTICL_NUM; i++) {
         
-        pos_cm[i] = pos_mouse - vertice[i];//粒子とマウスの距離
-        F[i] = G * M * m / pos_cm[i].length() * pos_cm[i].length();//ばんゆういんりょくのけいさんしき
-        pos_cm[i] = pos_cm[i].normalize();//pos_cmを単位ベクトルにする
-        acc[i] = pos_cm[i] * F[i] / m;//加速度を求める
-        speed[i] += acc[i];//速度を求める
+        pos_cm[i] = pos_mouse - vertice[i]; // 粒子とマウスの距離
+        F[i] = G * M * m / pos_cm[i].length() * pos_cm[i].length(); // 万有引力の計算式
         
-        //速度を制御する↓
-        if(speed[i].x > 15) {
+        pos_cm[i] = pos_cm[i].normalize(); // pos_cmを単位ベクトルにする
+        acc[i] = pos_cm[i] * F[i] / m; // 加速度を求める
+        speed[i] += acc[i]; // 速度を求める
+        
+        // 速度を制御する↓
+        // TODO: ここはifではなくてelse if?
+        if (speed[i].x > 15) {
             speed[i].x = 15;
         }
-        else if(speed[i].y > 15) {
+        else if (speed[i].y > 15) {
             speed[i].y = 15;
         }
-        else if(speed[i].x < -15) {
+        else if (speed[i].x < -15) {
             speed[i].x = -15;
         }
-        else if(speed[i].y<-15) {
+        else if (speed[i].y < -15) {
             speed[i].y = -15;
         }
-        
-        vertice[i] += speed[i];//円の動き
-        r = ofNoise(ofGetElapsedTimef() / i * 2) * 255;
-        g = ofNoise(ofGetElapsedTimef() / i * 3) * 255;
-        b = ofNoise(ofGetElapsedTimef() / i * 5) * 255;
+
+        //円の動き
+        vertice[i] += speed[i];
+
+//        TODO: maybe not needed
+//        r = ofNoise(ofGetElapsedTimef() / i * 2) * 255;
+//        g = ofNoise(ofGetElapsedTimef() / i * 3) * 255;
+//        b = ofNoise(ofGetElapsedTimef() / i * 5) * 255;
     }
+    
     vert_buff_obj.updateVertexData(vertice, PARTICL_NUM);
 }
 
@@ -70,8 +79,10 @@ void Circle::draw(){
 //            ofSetColor(red[i],green[i],blue[i],127);
 //            ofDrawCircle(pos_c[i], 5);
 //        }
+    
     glPointSize(1);
     glEnable(GL_POINT_SMOOTH);
+    
 //    cam.begin();
 //    ofSetColor(51,212,221);
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
