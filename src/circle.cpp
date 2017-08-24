@@ -15,18 +15,17 @@ Circle::Circle(){
     
     // 初期データの作成
     for(int i = 0; i < PARTICL_NUM; i++){
-        
+    
         speed[i] = ofVec3f(0, 0, 0);
         
         vertice[i].set(ofRandom(-1 * ofGetWidth() / 2, ofGetWidth() / 2),
                        ofRandom(-1 * ofGetHeight() / 2, ofGetHeight() / 2),
                        0.0f);
-        
     }
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
 //    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
-    //vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+//    vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
 void Circle::update(){
@@ -45,7 +44,6 @@ void Circle::update(){
         speed[i] += acc[i]; // 速度を求める
         
         // 速度を制御する↓
-        // TODO: ここはifではなくてelse if?
         if (speed[i].x > 15) {
             speed[i].x = 15;
         }
@@ -69,7 +67,6 @@ void Circle::update(){
         ofFloatColor color;
         color.set(r, g, b);
         colors[i].set(color);
-
     }
     
     vert_buff_obj.updateVertexData(vertice, PARTICL_NUM);
