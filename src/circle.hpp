@@ -22,6 +22,7 @@ public:
     void explode();
     void frash();
     float alpha;//透明度
+    void reset();
     
 private:
     //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル

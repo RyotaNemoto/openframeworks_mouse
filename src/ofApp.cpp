@@ -3,6 +3,7 @@
 void ofApp::setup(){
     ofBackground(0, 0, 0);
     ofSetFrameRate(60);
+    ofSetVerticalSync(true);
     circle = *new Circle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
 }
@@ -20,10 +21,12 @@ void ofApp::keyPressed(int key){
     circle.explode();
     }
     else if(key == 'a'){
-        for(int i=0; i<11; i++){
         circle.frash();
-            circle.update();
+            //circle.update();
         }
+    else if(key == 'r'){
+        circle.reset();
     }
 }
+
 
