@@ -15,7 +15,7 @@ Circle::Circle(){
     
     // 初期データの作成
     for(int i = 0; i < PARTICL_NUM; i++){
-    
+        
         speed[i] = ofVec3f(0, 0, 0);
         
         vertice[i].set(ofRandom(-1 * ofGetWidth() / 2, ofGetWidth() / 2),
@@ -24,8 +24,8 @@ Circle::Circle(){
     }
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
-//    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
-//    vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+    //    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
+    //    vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
 }
 
 void Circle::update(){
@@ -56,7 +56,7 @@ void Circle::update(){
         else if (speed[i].y < -15) {
             speed[i].y = -15;
         }
-
+        
         //円の動き
         vertice[i] += speed[i];
         
@@ -89,12 +89,7 @@ void Circle::explode(){
         }
         speed[i] = (pos_mouse - vertice[i]) / 8;
         vertice[i] += speed[i];
-
-        
-        
     }
-
-    
 }
 
 
