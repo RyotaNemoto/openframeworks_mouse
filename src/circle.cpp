@@ -81,4 +81,21 @@ void Circle::draw(){
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
 }
 
+void Circle::explode(){
+    for(int i=0; i<PARTICL_NUM; i++){
+        if(vertice[i] == pos_mouse){
+            speed[i] *= -1;
+            vertice[i] += speed[i];
+        }
+        speed[i] = (pos_mouse - vertice[i]) / 8;
+        vertice[i] += speed[i];
+
+        
+        
+    }
+
+    
+}
+
+
 

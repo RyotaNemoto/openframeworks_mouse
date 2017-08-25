@@ -19,6 +19,7 @@ public:
     void setup();
     void update();
     void draw();
+    void explode();
     
 private:
     //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル

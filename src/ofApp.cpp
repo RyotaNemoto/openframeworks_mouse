@@ -14,3 +14,9 @@ void ofApp::update(){
 void ofApp::draw(){
     circle.draw();
 }
+
+void ofApp::keyPressed(int key){
+    if(key == 'e'){
+    circle.explode();
+    }
+}
