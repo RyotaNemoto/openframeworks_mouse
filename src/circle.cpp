@@ -26,6 +26,7 @@ Circle::Circle(){
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //    vert_buff_obj.setNormalData(normals, PARTICL_NUM, GL_DYNAMIC_DRAW);//もしかしたら使うかも
+    alpha = 255;
 }
 
 void Circle::update(){
@@ -65,7 +66,7 @@ void Circle::update(){
         g = ofNoise(elapsedTime / 80);
         b = ofNoise(elapsedTime / 50);
         ofFloatColor color;
-        color.set(r, g, b);
+        color.set(r, g, b, alpha);
         colors[i].set(color);
     }
     
@@ -91,6 +92,20 @@ void Circle::explode(){
         vertice[i] += speed[i];
     }
 }
+
+void Circle::frash(){
+    
+    if(alpha == 255){
+        alpha = 0;
+    }
+    else if(alpha == 0){
+        alpha = 255;
+    }
+    
+    //ofSetColor(255, 255, 255);
+    
+}
+
 
 
 

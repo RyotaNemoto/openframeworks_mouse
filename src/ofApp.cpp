@@ -19,4 +19,11 @@ void ofApp::keyPressed(int key){
     if(key == 'e'){
     circle.explode();
     }
+    else if(key == 'a'){
+        for(int i=0; i<11; i++){
+        circle.frash();
+            circle.update();
+        }
+    }
 }
+
