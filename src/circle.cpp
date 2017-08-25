@@ -82,6 +82,13 @@ void Circle::draw(){
     glEnable(GL_POINT_SMOOTH);
     
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
+    
+    ofDrawBitmapStringHighlight("m = " + ofToString(m), 5, 30, ofColor(84, 165, 238), ofColor(237, 101, 27));
+    ofDrawBitmapStringHighlight("M = " + ofToString(M), 5, 50, ofColor(84, 165, 238), ofColor(237, 101, 27));
+    ofDrawBitmapStringHighlight("G = " + ofToString(G), 5, 70, ofColor(84, 165, 238), ofColor(237, 101, 27));
+    ofDrawBitmapStringHighlight("a = flash" , 5, 700, ofColor(101, 238, 149), ofColor(237, 101, 27));
+    ofDrawBitmapStringHighlight("e = explode", 5, 720, ofColor(101, 238, 149), ofColor(237, 101, 27));
+    ofDrawBitmapStringHighlight("r = reset", 5, 740, ofColor(101, 238, 149), ofColor(237, 101, 27));
 }
 
 void Circle::explode(){
@@ -95,7 +102,7 @@ void Circle::explode(){
     }
 }
 
-void Circle::frash(){
+void Circle::flash(){
 //    for(int i = 0; i < 11; i ++){
 //    if(alpha == 1){
 //        alpha = 0;

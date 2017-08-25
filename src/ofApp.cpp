@@ -6,6 +6,7 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     circle = *new Circle();
     ofEnableBlendMode(OF_BLENDMODE_ADD);
+    ofToggleFullscreen();
 }
 
 void ofApp::update(){
@@ -21,7 +22,7 @@ void ofApp::keyPressed(int key){
     circle.explode();
     }
     else if(key == 'a'){
-        circle.frash();
+        circle.flash();
             //circle.update();
         }
     else if(key == 'r'){

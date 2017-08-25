@@ -20,7 +20,7 @@ public:
     void update();
     void draw();
     void explode();
-    void frash();
+    void flash();
     float alpha;//透明度
     void reset();
     
