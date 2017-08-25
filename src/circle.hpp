@@ -20,6 +20,9 @@ public:
     void update();
     void draw();
     void explode();
+    void frash();
+    float alpha;//透明度
+    void reset();
     
 private:
     //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル
@@ -30,7 +33,7 @@ private:
     
     // 色
     float r, g, b;
-    
+    //float alpha;//透明度
     float m;//円の重さ
     float M;//マウスの重さ
     float F[PARTICL_NUM];//力

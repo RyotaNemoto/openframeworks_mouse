@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "circle.hpp"
+#define NUM 11
 
 class ofApp : public ofBaseApp{
     
