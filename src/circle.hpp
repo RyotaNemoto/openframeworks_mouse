@@ -23,8 +23,12 @@ public:
     void flash();
     float alpha;//透明度
     void reset();
+    bool size_e;//フォントのサイズ
     
 private:
+    ofTrueTypeFont font;
+    ofTrueTypeFont font_e;
+    ofTrueTypeFont font_e2;
     //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル
     ofVec3f pos_mouse;//マウスの位置ベクトル
     ofVec3f pos_cm[PARTICL_NUM];//合成
@@ -38,6 +42,7 @@ private:
     float M;//マウスの重さ
     float F[PARTICL_NUM];//力
     float G;//万有引力定数
+    float font_size_e;
     
     ofEasyCam cam; // A super simple camera for interacting with objects in 3D space.
     

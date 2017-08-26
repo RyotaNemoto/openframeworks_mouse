@@ -19,6 +19,8 @@ void ofApp::draw(){
 
 void ofApp::keyPressed(int key){
     if(key == 'e'){
+        circle.size_e = true;
+        //circle.draw();
     circle.explode();
     }
     else if(key == 'a'){

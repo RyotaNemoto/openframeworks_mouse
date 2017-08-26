@@ -22,6 +22,10 @@ Circle::Circle(){
                        ofRandom(-1 * ofGetHeight() / 2, ofGetHeight() / 2),
                        0.0f);
     }
+    size_e = false;
+    font.load("Futura.ttc", 18);
+    font_e.load("Futura.ttc", 18);
+    font_e2.load("Futura.ttc", 20);
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
@@ -83,16 +87,28 @@ void Circle::draw(){
     
     vert_buff_obj.draw(GL_POINTS, 0 ,PARTICL_NUM);
     
-    ofDrawBitmapStringHighlight("m = " + ofToString(m), 5, 30, ofColor(84, 165, 238), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("M = " + ofToString(M), 5, 50, ofColor(84, 165, 238), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("G = " + ofToString(G), 5, 70, ofColor(84, 165, 238), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("alpha = " + ofToString(alpha), 5, 90, ofColor(84, 165, 238), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("a = flash" , 5, 700, ofColor(101, 238, 149), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("e = explode", 5, 720, ofColor(101, 238, 149), ofColor(237, 101, 27));
-    ofDrawBitmapStringHighlight("r = reset", 5, 740, ofColor(101, 238, 149), ofColor(237, 101, 27));
-}
+    ofSetColor(237, 101, 27);
+    font.drawString("m = " + ofToString(m), 5, 30);
+    font.drawString("M = " + ofToString(M), 5, 50);
+    font.drawString("G = " + ofToString(G), 5, 70);
+    font.drawString("alpha = " + ofToString(alpha), 5, 90);
+    font.drawString("a =  flash", 5, 700);
+    if(size_e == false){
+        ofSetColor(237, 101, 27);
+        font_e.drawString("e =  explode", 5, 720);
+    }
+    else if(size_e == true){
+        ofSetColor(255, 255, 255);
+        font_e2.drawString("e =  explode", 5, 720);
+        size_e = false;
+    }
+    ofSetColor(237, 101, 27);
+    font.drawString("r =  reset", 5, 740);
+    
+    }
 
 void Circle::explode(){
+
     for(int i=0; i<PARTICL_NUM; i++){
         if(vertice[i] == pos_mouse){
             speed[i] *= -1;
