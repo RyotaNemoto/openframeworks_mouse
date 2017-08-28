@@ -23,12 +23,14 @@ public:
     void flash();
     float alpha;//透明度
     void reset();
-    bool size_e;//フォントのサイズ
+    bool color_e;
+    bool color_a;
+    bool color_r;
     
 private:
     ofTrueTypeFont font;
     ofTrueTypeFont font_e;
-    ofTrueTypeFont font_e2;
+    ofTrueTypeFont font_a;
     //ofVec2f pos_c[PARTICL_NUM];//円の位置ベクトル
     ofVec3f pos_mouse;//マウスの位置ベクトル
     ofVec3f pos_cm[PARTICL_NUM];//合成

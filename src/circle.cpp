@@ -22,10 +22,12 @@ Circle::Circle(){
                        ofRandom(-1 * ofGetHeight() / 2, ofGetHeight() / 2),
                        0.0f);
     }
-    size_e = false;
+    color_e = false;
+    color_a = false;
+    color_r = false;
     font.load("Futura.ttc", 18);
     font_e.load("Futura.ttc", 18);
-    font_e2.load("Futura.ttc", 20);
+    font_a.load("Futura.ttc", 18);
     
     vert_buff_obj.setVertexData(vertice, PARTICL_NUM, GL_DYNAMIC_DRAW);
     //    vert_buff_obj.setColorData(colors, PARTICL_NUM, GL_DYNAMIC_DRAW);
@@ -92,18 +94,33 @@ void Circle::draw(){
     font.drawString("M = " + ofToString(M), 5, 50);
     font.drawString("G = " + ofToString(G), 5, 70);
     font.drawString("alpha = " + ofToString(alpha), 5, 90);
+    if(color_a == false){
+        ofSetColor(237, 101, 27);
+        font.drawString("a =  flash", 5, 700);
+    }
+    else if(color_a == true){
+        ofSetColor(255, 255, 255);
     font.drawString("a =  flash", 5, 700);
-    if(size_e == false){
+        color_a = false;
+    }
+    if(color_e == false){
         ofSetColor(237, 101, 27);
         font_e.drawString("e =  explode", 5, 720);
     }
-    else if(size_e == true){
+    else if(color_e == true){
         ofSetColor(255, 255, 255);
-        font_e2.drawString("e =  explode", 5, 720);
-        size_e = false;
+        font_e.drawString("e =  explode", 5, 720);
+        color_e = false;
     }
+    if(color_r == false){
     ofSetColor(237, 101, 27);
     font.drawString("r =  reset", 5, 740);
+    }
+    else if(color_r == true){
+        ofSetColor(255, 255, 255);
+        font.drawString("r =  reset", 5, 740);
+        color_r = false;
+    }
     
     }
 

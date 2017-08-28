@@ -19,15 +19,17 @@ void ofApp::draw(){
 
 void ofApp::keyPressed(int key){
     if(key == 'e'){
-        circle.size_e = true;
+        circle.color_e = true;
         //circle.draw();
     circle.explode();
     }
     else if(key == 'a'){
+        circle.color_a = true;
         circle.flash();
             //circle.update();
         }
     else if(key == 'r'){
+        circle.color_r = true;
         circle.reset();
     }
 }
