@@ -94,6 +94,10 @@ void Circle::draw(){
     font.drawString("M = " + ofToString(M), 5, 50);
     font.drawString("G = " + ofToString(G), 5, 70);
     font.drawString("alpha = " + ofToString(alpha), 5, 90);
+    font.drawString("r = " + ofToString(r), 5, 110);
+    font.drawString("g = " + ofToString(g), 5, 130);
+    font.drawString("b = " + ofToString(b), 5, 150);
+    
     if(color_a == false){
         ofSetColor(237, 101, 27);
         font.drawString("a =  flash", 5, 700);
@@ -137,27 +141,15 @@ void Circle::explode(){
 }
 
 void Circle::flash(){
-//    for(int i = 0; i < 11; i ++){
-//    if(alpha == 1){
-//        alpha = 0;
-//    }
-//    else if(alpha == 0){
-//        alpha = 1;
-//    }
-//    }
     
-    /*
-    for(int i = 0; i < 11; i++){
-    }
-     */
     alpha = abs(cos(ofGetFrameNum()*50));
-    //ofSetColor(255, 255, 255);
-    
 }
 
 void Circle::reset(){
     alpha = 1;
 }
+
+
 
 
 

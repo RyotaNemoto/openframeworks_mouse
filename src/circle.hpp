@@ -27,6 +27,7 @@ public:
     bool color_a;
     bool color_r;
     
+    
 private:
     ofTrueTypeFont font;
     ofTrueTypeFont font_e;

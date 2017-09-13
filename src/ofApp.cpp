@@ -32,6 +32,7 @@ void ofApp::keyPressed(int key){
         circle.color_r = true;
         circle.reset();
     }
+    
 }
 
 
